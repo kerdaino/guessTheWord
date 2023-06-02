@@ -71,5 +71,35 @@ const makeGuess = function(inputButton){
     else{
         guessedLetter.push(inputButton);
         console.log(guessedLetter);
+        updateGuess();
+        updateWordInProgress(guessedLetter);
 };
 };
+
+const updateGuess = function(){
+    guessedLetters.innerHTML = "";
+for(const letters of guessedLetter){
+    const li = document.createElement("li");
+    li.innerText = letters;
+    guessedLetters.append(li);
+}
+};
+
+const updateWordInProgress = function(guessedLetter){
+    const wordUpper = word.toUpperCase();
+
+    const wordArray = wordUpper.split("");
+    const revealWord = [];
+
+    // console.log(revealWord);
+    for(const lett of wordArray){
+    if(guessedLetter.includes(lett)){
+        revealWord.push(letters.toUpperCase());
+    }
+    else{
+        revealWord.push("●")
+    }
+}
+
+wordInProgress.innerText= revealWord.join("");
+}
