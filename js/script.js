@@ -38,9 +38,9 @@ button.addEventListener("click", function (e) {
 
     console.log(inputButton);
     letter.value = "";
-    message.innerText = "";
+    // message.innerText = "";
 
-    const check = validate(inputButton);
+    // const check = validate(inputButton);
 });
 
 // const check = validate(message);
@@ -92,14 +92,22 @@ const updateWordInProgress = function(guessedLetter){
     const revealWord = [];
 
     // console.log(revealWord);
-    for(const lett of wordArray){
-    if(guessedLetter.includes(lett)){
-        revealWord.push(letters.toUpperCase());
+    for(const letter of wordArray){
+    if(guessedLetter.includes(letter)){
+        revealWord.push(letter.toUpperCase());
     }
     else{
-        revealWord.push("●")
+        revealWord.push("●");
     }
 }
 
 wordInProgress.innerText= revealWord.join("");
+winGame();
+}
+
+const winGame = function(){
+    if(word.toUpperCase() === wordInProgress.innerText){
+        message.classList.add("win");
+        message.innerHTML = `<p class="highlight">You guessed correct the word! Congrats!</p>`
+    }
 }
