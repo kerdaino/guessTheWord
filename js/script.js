@@ -67,13 +67,13 @@ const validate = function (input) {
     const acceptedLetter = /[a-zA-Z]/;
     // const acceptedLetterMatch = 
     if (input.length === 0) {
-        message.innerText = "PUT IN A LETTER IN THE BOX,FRIEND";
+        message.innerText = "PUT IN A LETTER IN THE BOX, FRIEND";
     }
     else if (input.length > 1) {
-        message.innerText = "Not more than one letter,THANKS";
+        message.innerText = "Not more than one letter, THANKS";
     }
     else if (!input.match(acceptedLetter)) {
-        message.innerText = "Enter letters from A to Z,try again";
+        message.innerText = "Enter letters from A to Z, try again";
     }
     else {
         return input;
